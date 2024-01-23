@@ -16,12 +16,12 @@ public class Test {
 
         while (true) {
             menu();
-            String a = scanner.nextLine();
-            switch (a) {
-                case "1" -> {
-                    service.findById();
-                    break;
+            int command = Integer.parseInt(scanner.nextLine());
+            switch (command) {
+                case 0 -> {
+                    return;
                 }
+                case 1 -> service.create();
             }
         }
 
