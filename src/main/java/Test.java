@@ -26,6 +26,7 @@ public class Test {
                 case 3 -> service.findById();
                 case 4 -> service.findByName();
                 case 5 -> service.deleteUserById();
+                case 6 -> service.updateUserById();
             }
         }
 
@@ -83,5 +84,6 @@ public class Test {
         System.out.println("3. Найти пользователя по Id");
         System.out.println("4. Найти пользователя по имя");
         System.out.println("5. Удалить пользователя по Id");
+        System.out.println("6. Обновить данные пользователя по Id");
     }
 }

@@ -60,13 +60,15 @@ public class UserService {
         System.out.println(user);
     }
 
-    public void deleteUserById(){
+    public void deleteUserById() {
         System.out.println("Введите ID пользователя:");
         int id = Integer.parseInt(scanner.nextLine());
         int user = userDao.deleteById(id);
     }
 
-
-
-
+    public void updateUserById() {
+        System.out.println("Введите ID пользователя:");
+        int id = Integer.parseInt(scanner.nextLine());
+        User user = userDao.update(userDao.findById(id));
+    }
 }

@@ -59,8 +59,18 @@ public class UserDao {
         return userId;
     }
 
-    public void update(User user) {
-
+    public User update(User user) {
+        try {
+            manager.getTransaction().begin();
+            manager.find(User.class, user.getId());
+            user.setAge(user.getAge() + 1);
+            manager.merge(user);
+            manager.getTransaction().commit();
+            System.out.println("Пользователь обновлен");
+        } catch (Exception e) {
+            manager.getTransaction().rollback();
+            System.out.println(e.getMessage());
+        }
+        return user;
     }
-
 }
