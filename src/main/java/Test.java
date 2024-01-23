@@ -25,6 +25,7 @@ public class Test {
                 case 2 -> service.printAll();
                 case 3 -> service.findById();
                 case 4 -> service.findByName();
+                case 5 -> service.deleteUserById();
             }
         }
 
@@ -81,5 +82,6 @@ public class Test {
         System.out.println("2. Вывести всех пользователей");
         System.out.println("3. Найти пользователя по Id");
         System.out.println("4. Найти пользователя по имя");
+        System.out.println("5. Удалить пользователя по Id");
     }
 }

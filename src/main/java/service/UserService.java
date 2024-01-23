@@ -16,6 +16,28 @@ public class UserService {
         this.scanner = scanner;
     }
 
+    public void create() {
+        System.out.println("Введите имя пользователя:");
+        String name = scanner.nextLine();
+
+        System.out.println("Введи электронную почту:");
+        String email = scanner.nextLine();
+
+        System.out.println("Введи возраст:");
+        int age = Integer.parseInt(scanner.nextLine());
+
+        User user = new User();
+        user.setName(name);
+        user.setEmail(email);
+        user.setAge(age);
+
+        userDao.create(user);
+    }
+
+    public void printAll() {
+        userDao.findAll();
+    }
+
     public void findById() {
         System.out.println("Введите id пользователя:");
         int id = Integer.parseInt(scanner.nextLine());
@@ -38,25 +60,13 @@ public class UserService {
         System.out.println(user);
     }
 
-    public void create() {
-        System.out.println("Введите имя пользователя:");
-        String name = scanner.nextLine();
-
-        System.out.println("Введи электронную почту:");
-        String email = scanner.nextLine();
-
-        System.out.println("Введи возраст:");
-        int age = Integer.parseInt(scanner.nextLine());
-
-        User user = new User();
-        user.setName(name);
-        user.setEmail(email);
-        user.setAge(age);
-
-        userDao.create(user);
+    public void deleteUserById(){
+        System.out.println("Введите ID пользователя:");
+        int id = Integer.parseInt(scanner.nextLine());
+        int user = userDao.deleteById(id);
     }
 
-    public void printAll() {
-        userDao.findAll();
-    }
+
+
+
 }
