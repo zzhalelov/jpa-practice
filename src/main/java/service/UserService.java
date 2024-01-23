@@ -4,7 +4,6 @@ import dao.UserDao;
 import lombok.Getter;
 import model.User;
 
-import java.util.List;
 import java.util.Scanner;
 
 @Getter
@@ -25,7 +24,24 @@ public class UserService {
             System.out.println("Пользователь с данным id не найден");
             return;
         }
-
         System.out.println(user);
+    }
+
+    public void create() {
+        System.out.println("Введите имя пользователя:");
+        String name = scanner.nextLine();
+
+        System.out.println("Введи электронную почту:");
+        String email = scanner.nextLine();
+
+        System.out.println("Введи возраст:");
+        int age = Integer.parseInt(scanner.nextLine());
+
+        User user = new User();
+        user.setName(name);
+        user.setEmail(email);
+        user.setAge(age);
+
+        userDao.create(user);
     }
 }
