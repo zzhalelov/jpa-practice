@@ -21,11 +21,10 @@ public class Test {
                 case 0 -> {
                     return;
                 }
-                case 1 -> {
-                    service.create();
-                    break;
-                }
+                case 1 -> service.create();
                 case 2 -> service.printAll();
+                case 3 -> service.findById();
+                case 4 -> service.findByName();
             }
         }
 
@@ -78,7 +77,9 @@ public class Test {
     }
 
     private static void menu() {
-        System.out.println("1. Найти пользователя по Id");
+        System.out.println("1. Создать пользователя");
         System.out.println("2. Вывести всех пользователей");
+        System.out.println("3. Найти пользователя по Id");
+        System.out.println("4. Найти пользователя по имя");
     }
 }

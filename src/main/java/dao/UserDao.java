@@ -6,6 +6,7 @@ import model.User;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 import java.util.List;
 
 public class UserDao {
@@ -14,6 +15,14 @@ public class UserDao {
 
     public User findById(int userId) {
         return manager.find(User.class, userId);
+    }
+
+    public User findByName(String name) {
+        Query query = manager.createQuery("SELECT u FROM User u WHERE u.name = :name");
+        query.setParameter("name", name);
+
+        List<User> users = query.getResultList();
+        return users.isEmpty() ? null : users.get(0);
     }
 
     public List<User> findAll() {

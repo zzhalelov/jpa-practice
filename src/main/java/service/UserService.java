@@ -27,6 +27,17 @@ public class UserService {
         System.out.println(user);
     }
 
+    public void findByName() {
+        System.out.println("Введите имя пользователя:");
+        String name = scanner.nextLine();
+        User user = userDao.findByName(name);
+        if (user == null) {
+            System.out.println("Пользователь с данным именем не найден");
+            return;
+        }
+        System.out.println(user);
+    }
+
     public void create() {
         System.out.println("Введите имя пользователя:");
         String name = scanner.nextLine();
