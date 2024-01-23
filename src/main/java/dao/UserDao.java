@@ -1,6 +1,5 @@
 package dao;
 
-
 import model.User;
 
 import javax.persistence.*;
@@ -67,6 +66,21 @@ public class UserDao {
             manager.merge(user);
             manager.getTransaction().commit();
             System.out.println("Пользователь обновлен");
+        } catch (Exception e) {
+            manager.getTransaction().rollback();
+            System.out.println(e.getMessage());
+        }
+        return user;
+    }
+
+    public User updateEmail(User user, String newEmail) {
+        try {
+            manager.getTransaction().begin();
+            manager.find(User.class, user.getId());
+            user.setEmail(newEmail);
+            manager.merge(user);
+            manager.getTransaction().commit();
+            System.out.println("Электронная почта пользователя обновлена");
         } catch (Exception e) {
             manager.getTransaction().rollback();
             System.out.println(e.getMessage());

@@ -71,4 +71,12 @@ public class UserService {
         int id = Integer.parseInt(scanner.nextLine());
         User user = userDao.update(userDao.findById(id));
     }
+
+    public void updateUserEmail() {
+        System.out.println("Введите ID пользователя:");
+        int id = Integer.parseInt(scanner.nextLine());
+        System.out.println("Введите новое значение электронной почты пользователя пользователя:");
+        String newEmail = scanner.nextLine();
+        userDao.updateEmail(userDao.findById(id), newEmail);
+    }
 }
