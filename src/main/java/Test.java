@@ -21,7 +21,11 @@ public class Test {
                 case 0 -> {
                     return;
                 }
-                case 1 -> service.create();
+                case 1 -> {
+                    service.create();
+                    break;
+                }
+                case 2 -> service.printAll();
             }
         }
 

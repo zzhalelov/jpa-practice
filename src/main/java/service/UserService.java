@@ -44,4 +44,8 @@ public class UserService {
 
         userDao.create(user);
     }
+
+    public void printAll() {
+        userDao.findAll();
+    }
 }
