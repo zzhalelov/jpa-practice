@@ -17,7 +17,9 @@ public class UserDao {
     }
 
     public List<User> findAll() {
-        return manager.createQuery("SELECT u FROM User u", User.class).getResultList();
+        List<User> users = manager.createQuery("SELECT u FROM User u", User.class).getResultList();
+        System.out.println(users);
+        return users;
     }
 
     public void create(User user) {
